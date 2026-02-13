@@ -32,4 +32,10 @@ public class CategoryService {
     public List<Category> getAll() {
         return categoryRepository.findAll();
     }
+
+    // Get category by Id
+    public Category getById(Long id) {
+        return categoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Category not found"));
+    }
 }
