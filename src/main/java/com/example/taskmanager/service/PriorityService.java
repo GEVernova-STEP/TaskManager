@@ -32,4 +32,10 @@ public class PriorityService {
     public List<Priority> getAll() {
         return priorityRepository.findAll();
     }
+
+    //Get priority by id
+    public Priority getById(Long id) {
+        return priorityRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Priority not found"));
+    }
 }
