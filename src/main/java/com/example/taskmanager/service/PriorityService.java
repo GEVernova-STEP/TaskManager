@@ -1,6 +1,7 @@
 package com.example.taskmanager.service;
 
 import com.example.taskmanager.dto.CreatePriorityRequest;
+import com.example.taskmanager.exception.PriorityNotFoundException;
 import com.example.taskmanager.model.Priority;
 import com.example.taskmanager.repository.PriorityRepository;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,7 @@ public class PriorityService {
     //Get priority by id
     public Priority getById(Long id) {
         return priorityRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Priority not found"));
+                .orElseThrow(() -> new PriorityNotFoundException(id));
     }
 
     //Delete priority

@@ -2,6 +2,10 @@ package com.example.taskmanager.service;
 
 import com.example.taskmanager.dto.CreateTaskRequest;
 import com.example.taskmanager.dto.UpdateTaskStatusRequest;
+import com.example.taskmanager.exception.CategoryNotFoundException;
+import com.example.taskmanager.exception.PriorityNotFoundException;
+import com.example.taskmanager.exception.TaskNotFoundException;
+import com.example.taskmanager.exception.UserNotFoundException;
 import com.example.taskmanager.model.*;
 import com.example.taskmanager.repository.*;
 import lombok.RequiredArgsConstructor;
@@ -26,13 +30,13 @@ public class TaskService {
     public Task createTask(CreateTaskRequest request) {
 
         User user = userRepository.findById(request.getUserId())
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException(request.getUserId()));
 
         Category category = categoryRepository.findById(request.getCategoryId())
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new CategoryNotFoundException(request.getCategoryId()));
 
         Priority priority = priorityRepository.findById(request.getPriorityId())
-                .orElseThrow(() -> new RuntimeException("Priority not found"));
+                .orElseThrow(() -> new PriorityNotFoundException(request.getPriorityId()));
 
         Task task = Task.builder()
                 .title(request.getTitle())
@@ -57,7 +61,7 @@ public class TaskService {
     //Get task by id
     public Task getTaskById(Long id) {
         return taskRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Task not found"));
+                .orElseThrow(() -> new TaskNotFoundException(id));
     }
 
     //Delete task

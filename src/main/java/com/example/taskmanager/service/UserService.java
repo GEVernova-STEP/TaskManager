@@ -1,6 +1,7 @@
 package com.example.taskmanager.service;
 
 import com.example.taskmanager.dto.CreateUserRequest;
+import com.example.taskmanager.exception.UserNotFoundException;
 import com.example.taskmanager.model.User;
 import com.example.taskmanager.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -38,7 +39,7 @@ public class UserService {
     // Get user by id
     public User getUserById(Long id) {
         return userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException(id));
     }
 
     // Delete user

@@ -1,6 +1,7 @@
 package com.example.taskmanager.service;
 
 import com.example.taskmanager.dto.CreateCategoryRequest;
+import com.example.taskmanager.exception.CategoryNotFoundException;
 import com.example.taskmanager.model.Category;
 import com.example.taskmanager.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,7 @@ public class CategoryService {
     // Get category by Id
     public Category getById(Long id) {
         return categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new CategoryNotFoundException(id));
     }
 
     // Delete Category
