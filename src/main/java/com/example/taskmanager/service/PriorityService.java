@@ -27,4 +27,9 @@ public class PriorityService {
 
         return priorityRepository.save(priority);
     }
+
+    // Get all priority list
+    public List<Priority> getAll() {
+        return priorityRepository.findAll();
+    }
 }
