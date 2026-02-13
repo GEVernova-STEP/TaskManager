@@ -21,33 +21,25 @@ public class TaskController {
 
     private final TaskService taskService;
 
-    /**
-     * Create Task
-     */
+    //Create Task
     @PostMapping
     public ResponseEntity<Task> create(@Valid @RequestBody CreateTaskRequest request) {
         return ResponseEntity.ok(taskService.createTask(request));
     }
 
-    /**
-     * Get All Tasks
-     */
+    //Get all task
     @GetMapping
     public ResponseEntity<List<Task>> getAll() {
         return ResponseEntity.ok(taskService.getAllTasks());
     }
 
-    /**
-     * Get Task By ID
-     */
+    //Get task by id
     @GetMapping("/{id}")
     public ResponseEntity<Task> getById(@PathVariable Long id) {
         return ResponseEntity.ok(taskService.getTaskById(id));
     }
 
-    /**
-     * Update Task Status Only
-     */
+    //Update task status
     @PutMapping("/{id}/status")
     public ResponseEntity<Task> updateStatus(
             @PathVariable Long id,
@@ -56,9 +48,7 @@ public class TaskController {
         return ResponseEntity.ok(taskService.updateStatus(id, request));
     }
 
-    /**
-     * Delete Task
-     */
+    //Delete task
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         taskService.deleteTask(id);
