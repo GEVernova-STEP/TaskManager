@@ -38,4 +38,9 @@ public class PriorityService {
         return priorityRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Priority not found"));
     }
+
+    //Delete priority
+    public void delete(Long id) {
+        priorityRepository.deleteById(id);
+    }
 }
