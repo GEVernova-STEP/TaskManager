@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Task - Task Manager</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- sidebar navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <h2>Task Manager</h2>
+        <p>Stay organized</p>
+      </div>
+      <nav>
+        <a href="index.html"><span>Dashboard</span></a>
+        <a href="users.html"><span>Users</span></a>
+        <a href="categories.html"><span>Categories</span></a>
+        <a href="priorities.html"><span>Priorities</span></a>
+        <a href="tasks.html" class="active"><span>Create Task</span></a>
+      </nav>
+    </aside>
+
+    <!-- main content -->
+    <div class="content">
+
+      <!-- toast notification -->
+      <div id="toast" class="toast"></div>
+
+      <!-- page header -->
+      <div class="page-header">
+        <h1>Create Task</h1>
+        <p>Fill in the details below and submit to create a new task</p>
+      </div>
+
+      <!-- create task form -->
+      <div class="card" style="max-width: 550px;">
+        <div class="card-header">
+          <h2>New Task</h2>
+        </div>
+        <form id="taskForm">
+          <div class="form-group">
+            <label for="taskTitle">Title</label>
+            <input id="taskTitle" type="text" placeholder="Enter task title" required />
+          </div>
+          <div class="form-group">
+            <label for="taskDescription">Description</label>
+            <textarea id="taskDescription" placeholder="Describe the task in detail"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="taskDueDate">Due Date</label>
+            <input id="taskDueDate" type="date" />
+          </div>
+          <div class="form-group">
+            <label for="taskUserId">Assign to User</label>
+            <select id="taskUserId" required></select>
+          </div>
+          <div class="form-group">
+            <label for="taskCategoryId">Category</label>
+            <select id="taskCategoryId" required></select>
+          </div>
+          <div class="form-group">
+            <label for="taskPriorityId">Priority</label>
+            <select id="taskPriorityId" required></select>
+          </div>
+          <button type="submit" class="btn-success">Create Task</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/tasks.js"></script>
+</body>
+</html>
+
