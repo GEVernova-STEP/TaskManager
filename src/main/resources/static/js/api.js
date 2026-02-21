@@ -1,4 +1,4 @@
-// shared api helper used by both dashboard and manage pages
+// shared api helper
 
 // base api call function
 async function apiRequest(path, options) {

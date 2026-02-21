@@ -336,3 +336,65 @@ Global handler returns structured error JSON with proper status codes.
 6. Fetch Tasks
 
 ---
+
+## Frontend UI 
+
+A clean multi-page web UI is available under the Spring Boot static resources. Each feature has its own dedicated page.
+
+### UI Screenshots
+
+#### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+The dashboard shows task stats at the top (Total, Pending, In Progress, Done), filter buttons to view tasks by status, and task cards with inline status change and delete buttons.
+
+#### Users Page
+
+![Users](screenshots/users.png)
+
+Add new users with name and email. All existing users are listed below with a delete button.
+
+#### Categories Page
+
+![Categories](screenshots/categories.png)
+
+Create task categories with name and optional description. Existing categories are listed below.
+
+#### Priorities Page
+
+![Priorities](screenshots/priorities.png)
+
+Add priority levels like HIGH, MEDIUM, LOW with a numeric level for sorting.
+
+#### Create Task Page
+
+![Create Task](screenshots/create-task.png)
+
+Create a new task by filling in title, description, due date, and selecting user, category, and priority from dropdowns.
+
+
+
+### File Structure
+
+```
+static/
+  index.html          (Dashboard page)
+  users.html          (Users page)
+  categories.html     (Categories page)
+  priorities.html     (Priorities page)
+  tasks.html          (Create Task page)
+  css/
+    app.css           (Shared styles)
+  js/
+    api.js            (Shared API helper functions)
+    dashboard.js      (Dashboard page logic)
+    users.js          (Users page logic)
+    categories.js     (Categories page logic)
+    priorities.js     (Priorities page logic)
+    tasks.js          (Create Task page logic)
+```
+
+Run the application and open `http://localhost:8080/` in your browser.
+
+---
