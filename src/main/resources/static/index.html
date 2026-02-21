@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Task Manager</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- sidebar navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <h2>Task Manager</h2>
+        <p>Stay organized</p>
+      </div>
+      <nav>
+        <a href="index.html" class="active"><span>Dashboard</span></a>
+        <a href="users.html"><span>Users</span></a>
+        <a href="categories.html"><span>Categories</span></a>
+        <a href="priorities.html"><span>Priorities</span></a>
+        <a href="tasks.html"><span>Create Task</span></a>
+      </nav>
+    </aside>
+
+    <!-- main content -->
+    <div class="content">
+
+      <!-- toast notification -->
+      <div id="toast" class="toast"></div>
+
+      <!-- page header -->
+      <div class="page-header">
+        <h1>Dashboard</h1>
+        <p>Overview of all your tasks</p>
+      </div>
+
+      <!-- stats row -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-label">Total Tasks</div>
+          <div class="stat-value" id="statTotal">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pending</div>
+          <div class="stat-value" id="statPending">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">In Progress</div>
+          <div class="stat-value" id="statProgress">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Done</div>
+          <div class="stat-value" id="statDone">0</div>
+        </div>
+      </div>
+
+      <!-- filter buttons and refresh -->
+      <div class="card" style="margin-bottom: 16px;">
+        <div class="card-header">
+          <h2>Tasks</h2>
+          <button class="btn-primary btn-sm" onclick="loadDashboard()">Refresh</button>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="btn-outline btn-sm filter-btn active" onclick="filterTasks('ALL')">All</button>
+          <button class="btn-outline btn-sm filter-btn" onclick="filterTasks('PENDING')">Pending</button>
+          <button class="btn-outline btn-sm filter-btn" onclick="filterTasks('IN_PROGRESS')">In Progress</button>
+          <button class="btn-outline btn-sm filter-btn" onclick="filterTasks('DONE')">Done</button>
+        </div>
+      </div>
+
+      <!-- task cards grid -->
+      <div class="tasks-grid" id="tasksGrid"></div>
+
+    </div>
+  </div>
+
+  <!-- delete confirm modal -->
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal">
+      <h3>Confirm Delete</h3>
+      <p>Are you sure you want to delete <strong id="deleteTaskName"></strong>?</p>
+      <div class="modal-actions">
+        <button class="btn-outline" onclick="closeDeleteModal()">Cancel</button>
+        <button class="btn-danger" id="confirmDeleteBtn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- load shared api helper first, then dashboard logic -->
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
+
