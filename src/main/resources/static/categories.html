@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories - Task Manager</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- sidebar navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <h2>Task Manager</h2>
+        <p>Stay organized</p>
+      </div>
+      <nav>
+        <a href="index.html"><span>Dashboard</span></a>
+        <a href="users.html"><span>Users</span></a>
+        <a href="categories.html" class="active"><span>Categories</span></a>
+        <a href="priorities.html"><span>Priorities</span></a>
+        <a href="tasks.html"><span>Create Task</span></a>
+      </nav>
+    </aside>
+
+    <!-- main content -->
+    <div class="content">
+
+      <!-- toast notification -->
+      <div id="toast" class="toast"></div>
+
+      <!-- page header -->
+      <div class="page-header">
+        <h1>Categories</h1>
+        <p>Add and manage task categories</p>
+      </div>
+
+      <!-- create category form -->
+      <div class="card" style="max-width: 500px; margin-bottom: 20px;">
+        <div class="card-header">
+          <h2>Add New Category</h2>
+        </div>
+        <form id="categoryForm">
+          <div class="form-group">
+            <label for="categoryName">Name</label>
+            <input id="categoryName" type="text" placeholder="Enter category name" required />
+          </div>
+          <div class="form-group">
+            <label for="categoryDescription">Description</label>
+            <textarea id="categoryDescription" placeholder="Optional description"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Add Category</button>
+        </form>
+      </div>
+
+      <!-- categories list -->
+      <div class="card">
+        <div class="card-header">
+          <h2>All Categories</h2>
+          <button class="btn-outline btn-sm" onclick="loadCategories()">Refresh</button>
+        </div>
+        <div class="item-list" id="categoriesList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/categories.js"></script>
+</body>
+</html>
+
