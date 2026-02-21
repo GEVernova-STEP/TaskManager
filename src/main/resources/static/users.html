@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Users - Task Manager</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- sidebar navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <h2>Task Manager</h2>
+        <p>Stay organized</p>
+      </div>
+      <nav>
+        <a href="index.html"><span>Dashboard</span></a>
+        <a href="users.html" class="active"><span>Users</span></a>
+        <a href="categories.html"><span>Categories</span></a>
+        <a href="priorities.html"><span>Priorities</span></a>
+        <a href="tasks.html"><span>Create Task</span></a>
+      </nav>
+    </aside>
+
+    <!-- main content -->
+    <div class="content">
+
+      <!-- toast notification -->
+      <div id="toast" class="toast"></div>
+
+      <!-- page header -->
+      <div class="page-header">
+        <h1>Users</h1>
+        <p>Add and manage application users</p>
+      </div>
+
+      <!-- create user form -->
+      <div class="card" style="max-width: 500px; margin-bottom: 20px;">
+        <div class="card-header">
+          <h2>Add New User</h2>
+        </div>
+        <form id="userForm">
+          <div class="form-group">
+            <label for="userName">Name</label>
+            <input id="userName" type="text" placeholder="Enter full name" required />
+          </div>
+          <div class="form-group">
+            <label for="userEmail">Email</label>
+            <input id="userEmail" type="email" placeholder="Enter email address" required />
+          </div>
+          <button type="submit" class="btn-primary">Add User</button>
+        </form>
+      </div>
+
+      <!-- users list -->
+      <div class="card">
+        <div class="card-header">
+          <h2>All Users</h2>
+          <button class="btn-outline btn-sm" onclick="loadUsers()">Refresh</button>
+        </div>
+        <div class="item-list" id="usersList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/users.js"></script>
+</body>
+</html>
+
