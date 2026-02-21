@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Priorities - Task Manager</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- sidebar navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <h2>Task Manager</h2>
+        <p>Stay organized</p>
+      </div>
+      <nav>
+        <a href="index.html"><span>Dashboard</span></a>
+        <a href="users.html"><span>Users</span></a>
+        <a href="categories.html"><span>Categories</span></a>
+        <a href="priorities.html" class="active"><span>Priorities</span></a>
+        <a href="tasks.html"><span>Create Task</span></a>
+      </nav>
+    </aside>
+
+    <!-- main content -->
+    <div class="content">
+
+      <!-- toast notification -->
+      <div id="toast" class="toast"></div>
+
+      <!-- page header -->
+      <div class="page-header">
+        <h1>Priorities</h1>
+        <p>Add and manage priority levels for tasks</p>
+      </div>
+
+      <!-- create priority form -->
+      <div class="card" style="max-width: 500px; margin-bottom: 20px;">
+        <div class="card-header">
+          <h2>Add New Priority</h2>
+        </div>
+        <form id="priorityForm">
+          <div class="form-group">
+            <label for="priorityName">Name</label>
+            <input id="priorityName" type="text" placeholder="e.g. HIGH, MEDIUM, LOW" required />
+          </div>
+          <div class="form-group">
+            <label for="priorityLevel">Level</label>
+            <input id="priorityLevel" type="number" min="1" placeholder="Numeric level for sorting" required />
+          </div>
+          <button type="submit" class="btn-primary">Add Priority</button>
+        </form>
+      </div>
+
+      <!-- priorities list -->
+      <div class="card">
+        <div class="card-header">
+          <h2>All Priorities</h2>
+          <button class="btn-outline btn-sm" onclick="loadPriorities()">Refresh</button>
+        </div>
+        <div class="item-list" id="prioritiesList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/priorities.js"></script>
+</body>
+</html>
+
